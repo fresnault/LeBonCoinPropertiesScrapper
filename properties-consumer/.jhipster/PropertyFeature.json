@@ -1,0 +1,38 @@
+{
+    "name": "PropertyFeature",
+    "fields": [
+        {
+            "fieldName": "value",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "property",
+            "otherEntityName": "property",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "feature",
+            "otherEntityName": "feature",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "propertyFeature"
+        }
+    ],
+    "changelogDate": "20180826073259",
+    "entityTableName": "property_feature",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "microserviceName": "propertiesConsumer"
+}

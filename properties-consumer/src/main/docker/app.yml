@@ -1,0 +1,10 @@
+version: '2'
+services:
+    propertiesconsumer-app:
+        image: propertiesconsumer
+        environment:
+            # - _JAVA_OPTIONS=-Xmx512m -Xms256m
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/properties?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - SPRING_RABBITMQ_HOST=host.docker.internal
+            - JHIPSTER_SLEEP=2 # gives time for the database to boot before the application

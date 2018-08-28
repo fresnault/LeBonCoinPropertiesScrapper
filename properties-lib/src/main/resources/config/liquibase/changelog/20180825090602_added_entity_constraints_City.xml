@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity City.
+    -->
+    <changeSet id="20180825090602-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="department_id"
+                                 baseTableName="city"
+                                 constraintName="fk_city_department_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="department"/>
+
+		<createIndex indexName="idx_city_name_zipcode"
+	            tableName="city"
+	            unique="true">
+	        <column name="name" type="varchar(255)"/>
+	        <column name="zip_code" type="varchar(255)"/>
+	        <column name="department_id" type="numeric"/>
+	    </createIndex>
+
+    </changeSet>
+</databaseChangeLog>
